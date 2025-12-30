@@ -1,17 +1,23 @@
 /**
  * Projects API Routes
- * CRUD operations for saved projects
+ * CRUD operations for saved projects (user-scoped)
  */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { getDb } from '@/lib/db/client';
 import { projects } from '@/lib/db/schema';
-import { desc } from 'drizzle-orm';
+import { desc, eq } from 'drizzle-orm';
 import { nanoid } from 'nanoid';
+import { auth } from '@/lib/auth';
 
-// GET /api/projects - List all projects
+// GET /api/projects - List user's projects
 export async function GET() {
   try {
+    const session = await auth();
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     if (!process.env.TURSO_DATABASE_URL) {
       return NextResponse.json(
         { error: 'Database not configured' },
@@ -20,7 +26,7 @@ export async function GET() {
     }
 
     const db = getDb();
-    const allProjects = await db
+    const userProjects = await db
       .select({
         id: projects.id,
         name: projects.name,
@@ -28,9 +34,10 @@ export async function GET() {
         updated_at: projects.updated_at,
       })
       .from(projects)
+      .where(eq(projects.user_id, session.user.id))
       .orderBy(desc(projects.updated_at));
 
-    return NextResponse.json(allProjects);
+    return NextResponse.json(userProjects);
   } catch (error) {
     console.error('Failed to fetch projects:', error);
     return NextResponse.json(
@@ -43,6 +50,11 @@ export async function GET() {
 // POST /api/projects - Create new project
 export async function POST(request: NextRequest) {
   try {
+    const session = await auth();
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     if (!process.env.TURSO_DATABASE_URL) {
       return NextResponse.json(
         { error: 'Database not configured' },
@@ -66,6 +78,7 @@ export async function POST(request: NextRequest) {
 
     await db.insert(projects).values({
       id,
+      user_id: session.user.id,
       name,
       data: JSON.stringify(data),
       created_at: now,
