@@ -1,0 +1,625 @@
+{
+  "meta": {
+    "ordinance": "Iз-1971",
+    "version": "v2024_01",
+    "effective_from": "2024-12-31",
+    "source": "Държавен вестник, бр. 91 от 29.10.2024 г.",
+    "last_updated": "2024-12-31",
+    "notes": "Consolidated version including amendments through ДВ бр. 91/2024"
+  },
+  "tables": {
+    "occupant_load_table_8": [
+      {
+        "id": 1,
+        "functional_class": "Ф3.1",
+        "space_type": "Търговия - площи с вход от кота терен",
+        "space_type_en": "Trade - areas with entrance at ground level",
+        "area_per_person_m2": 2.0,
+        "notes": "За определяне на площта се използват всички достъпни за посетителите площи",
+        "article_ref": "чл. 36, табл. 8, т. 1а"
+      },
+      {
+        "id": 2,
+        "functional_class": "Ф3.1",
+        "space_type": "Търговия - площи извън кота терен",
+        "space_type_en": "Trade - areas not at ground level",
+        "area_per_person_m2": 3.0,
+        "notes": "За определяне на площта се използват всички достъпни за посетителите площи",
+        "article_ref": "чл. 36, табл. 8, т. 1б"
+      },
+      {
+        "id": 3,
+        "functional_class": "Ф2.1",
+        "space_type": "Култура и изкуство, музеи, художествени галерии",
+        "space_type_en": "Culture and art, museums, art galleries",
+        "area_per_person_m2": 1.35,
+        "notes": null,
+        "article_ref": "чл. 36, табл. 8, т. 2"
+      },
+      {
+        "id": 4,
+        "functional_class": "Ф2.2",
+        "space_type": "Игрални зали и казина",
+        "space_type_en": "Gaming halls and casinos",
+        "area_per_person_m2": 1.35,
+        "notes": null,
+        "article_ref": "чл. 36, табл. 8, т. 2"
+      },
+      {
+        "id": 5,
+        "functional_class": "Ф3.2",
+        "space_type": "Обществено хранене - помещения за посетители",
+        "space_type_en": "Catering - visitor areas",
+        "area_per_person_m2": 1.0,
+        "notes": null,
+        "article_ref": "чл. 36, табл. 8, т. 3"
+      },
+      {
+        "id": 6,
+        "functional_class": "Ф3.3",
+        "space_type": "Транспорт - помещения за посетители",
+        "space_type_en": "Transport - visitor areas",
+        "area_per_person_m2": 1.0,
+        "notes": null,
+        "article_ref": "чл. 36, табл. 8, т. 3"
+      },
+      {
+        "id": 7,
+        "functional_class": "Ф3.4",
+        "space_type": "Съобщения и услуги - помещения за посетители",
+        "space_type_en": "Communications and services - visitor areas",
+        "area_per_person_m2": 1.0,
+        "notes": null,
+        "article_ref": "чл. 36, табл. 8, т. 3"
+      },
+      {
+        "id": 8,
+        "functional_class": "Ф3.5",
+        "space_type": "Услуги - помещения за посетители",
+        "space_type_en": "Services - visitor areas",
+        "area_per_person_m2": 1.0,
+        "notes": null,
+        "article_ref": "чл. 36, табл. 8, т. 3"
+      },
+      {
+        "id": 9,
+        "functional_class": "Ф2.2",
+        "space_type": "Култура и изкуство (извън музеи)",
+        "space_type_en": "Culture and art (excluding museums)",
+        "area_per_person_m2": 0.5,
+        "notes": null,
+        "article_ref": "чл. 36, табл. 8, т. 4"
+      },
+      {
+        "id": 10,
+        "functional_class": "Ф2.1",
+        "space_type": "Спортни съоръжения",
+        "space_type_en": "Sports facilities",
+        "area_per_person_m2": 0.5,
+        "notes": null,
+        "article_ref": "чл. 36, табл. 8, т. 4"
+      },
+      {
+        "id": 11,
+        "functional_class": "Ф2.1",
+        "space_type": "Театрални и кинозали, многофункционални зали",
+        "space_type_en": "Theater and cinema halls, multipurpose halls",
+        "area_per_person_m2": 0.6,
+        "notes": "С места за зрители без постоянно монтирани столове",
+        "article_ref": "чл. 36, табл. 8, т. 5"
+      },
+      {
+        "id": 12,
+        "functional_class": "Ф2.1",
+        "space_type": "Площи за изчакване (фоайета)",
+        "space_type_en": "Waiting areas (lobbies)",
+        "area_per_person_m2": 0.25,
+        "notes": "Фоайета на зали в областта на културата и изкуството",
+        "article_ref": "чл. 36, табл. 8, т. 6"
+      },
+      {
+        "id": 13,
+        "functional_class": "Ф2.2",
+        "space_type": "Дискотеки, концертни зали (без столове)",
+        "space_type_en": "Discos, concert halls (without chairs)",
+        "area_per_person_m2": 0.25,
+        "notes": null,
+        "article_ref": "чл. 36, табл. 8, т. 7"
+      },
+      {
+        "id": 14,
+        "functional_class": "general",
+        "space_type": "Работилници, производствени и лабораторни помещения, офиси",
+        "space_type_en": "Workshops, production and laboratory premises, offices",
+        "area_per_person_m2": 5.0,
+        "notes": null,
+        "article_ref": "чл. 36, табл. 8, т. 8"
+      },
+      {
+        "id": 15,
+        "functional_class": "Ф2.1",
+        "space_type": "Библиотеки",
+        "space_type_en": "Libraries",
+        "area_per_person_m2": 7.0,
+        "notes": null,
+        "article_ref": "чл. 36, табл. 8, т. 9"
+      },
+      {
+        "id": 16,
+        "functional_class": "general",
+        "space_type": "Кухни",
+        "space_type_en": "Kitchens",
+        "area_per_person_m2": 7.0,
+        "notes": null,
+        "article_ref": "чл. 36, табл. 8, т. 9"
+      },
+      {
+        "id": 17,
+        "functional_class": "Ф5.2",
+        "space_type": "Складове",
+        "space_type_en": "Warehouses",
+        "area_per_person_m2": 30.0,
+        "notes": null,
+        "article_ref": "чл. 36, табл. 8, т. 10"
+      },
+      {
+        "id": 18,
+        "functional_class": "Ф5.2",
+        "space_type": "Паркинги и гаражи",
+        "space_type_en": "Parking and garages",
+        "area_per_person_m2": 15.0,
+        "notes": "Прилага се при неопределен брой МПС в проекта",
+        "article_ref": "чл. 36, табл. 8, т. 11"
+      }
+    ],
+    "min_exits_by_occupants": [
+      {
+        "functional_class_group": "Ф1-Ф4",
+        "min_occupants": 1,
+        "max_occupants": 15,
+        "max_area_m2": 300,
+        "underground_only": true,
+        "min_exits": 1,
+        "min_width_m": null,
+        "article_ref": "чл. 41, ал. 2, т. 1"
+      },
+      {
+        "functional_class_group": "Ф1-Ф4",
+        "min_occupants": 1,
+        "max_occupants": 50,
+        "max_area_m2": null,
+        "underground_only": false,
+        "min_exits": 1,
+        "min_width_m": 0.9,
+        "article_ref": "чл. 41, ал. 2, т. 2"
+      },
+      {
+        "functional_class_group": "Ф1-Ф4",
+        "min_occupants": 51,
+        "max_occupants": 100,
+        "max_area_m2": null,
+        "underground_only": false,
+        "min_exits": 2,
+        "min_width_m": 0.9,
+        "article_ref": "чл. 41, ал. 2, т. 3"
+      },
+      {
+        "functional_class_group": "Ф1-Ф4",
+        "min_occupants": 101,
+        "max_occupants": 200,
+        "max_area_m2": null,
+        "underground_only": false,
+        "min_exits": 3,
+        "min_width_m": 0.9,
+        "notes": "или 2 изхода с широчина 1.2m всеки",
+        "article_ref": "чл. 41, ал. 2, т. 4"
+      },
+      {
+        "functional_class_group": "Ф1-Ф4",
+        "min_occupants": 201,
+        "max_occupants": 800,
+        "max_area_m2": null,
+        "underground_only": false,
+        "min_exits": 2,
+        "min_width_m": 1.2,
+        "notes": "Сумарна широчина по формула",
+        "article_ref": "чл. 41, ал. 4-5"
+      },
+      {
+        "functional_class_group": "Ф1-Ф4",
+        "min_occupants": 801,
+        "max_occupants": null,
+        "max_area_m2": null,
+        "underground_only": false,
+        "min_exits": 3,
+        "min_width_m": 1.2,
+        "notes": "Всеки изход към независим евакуационен път",
+        "article_ref": "чл. 41, ал. 5"
+      },
+      {
+        "functional_class_group": "Ф5",
+        "category": "Ф5А",
+        "min_occupants": 1,
+        "max_occupants": 10,
+        "max_area_m2": 100,
+        "underground_only": false,
+        "min_exits": 1,
+        "min_width_m": null,
+        "article_ref": "чл. 42, ал. 3, т. 1"
+      },
+      {
+        "functional_class_group": "Ф5",
+        "category": "Ф5Б",
+        "min_occupants": 1,
+        "max_occupants": 10,
+        "max_area_m2": 100,
+        "underground_only": false,
+        "min_exits": 1,
+        "min_width_m": null,
+        "article_ref": "чл. 42, ал. 3, т. 1"
+      },
+      {
+        "functional_class_group": "Ф5",
+        "category": "Ф5В",
+        "min_occupants": 1,
+        "max_occupants": 50,
+        "max_area_m2": 300,
+        "underground_only": false,
+        "min_exits": 1,
+        "min_width_m": null,
+        "article_ref": "чл. 42, ал. 3, т. 2"
+      },
+      {
+        "functional_class_group": "Ф5",
+        "category": "Ф5Г",
+        "min_occupants": 1,
+        "max_occupants": 100,
+        "max_area_m2": 500,
+        "underground_only": false,
+        "min_exits": 1,
+        "min_width_m": null,
+        "article_ref": "чл. 42, ал. 3, т. 3"
+      },
+      {
+        "functional_class_group": "Ф5",
+        "category": "Ф5Д",
+        "min_occupants": 1,
+        "max_occupants": 100,
+        "max_area_m2": 500,
+        "underground_only": false,
+        "min_exits": 1,
+        "min_width_m": null,
+        "article_ref": "чл. 42, ал. 3, т. 3"
+      },
+      {
+        "functional_class_group": "Ф5",
+        "category": "underground",
+        "min_occupants": 1,
+        "max_occupants": 15,
+        "max_area_m2": 300,
+        "underground_only": true,
+        "min_exits": 1,
+        "min_width_m": null,
+        "article_ref": "чл. 42, ал. 3, т. 4"
+      },
+      {
+        "functional_class_group": "Ф5",
+        "category": "general",
+        "min_occupants": 16,
+        "max_occupants": 200,
+        "max_area_m2": null,
+        "underground_only": false,
+        "min_exits": 2,
+        "min_width_m": 0.9,
+        "article_ref": "чл. 42, ал. 2"
+      },
+      {
+        "functional_class_group": "Ф5",
+        "category": "general",
+        "min_occupants": 201,
+        "max_occupants": null,
+        "max_area_m2": null,
+        "underground_only": false,
+        "min_exits": 3,
+        "min_width_m": 0.9,
+        "notes": "или 2 изхода с широчина 1.2m",
+        "article_ref": "чл. 42, ал. 5"
+      }
+    ],
+    "max_travel_distance": [
+      {
+        "id": 1,
+        "context": "Вътре в помещение",
+        "evacuation_type": "single_direction",
+        "max_distance_m": 20,
+        "conditions": null,
+        "article_ref": "чл. 44, ал. 2, т. 1"
+      },
+      {
+        "id": 2,
+        "context": "Вътре в помещение",
+        "evacuation_type": "multiple_directions",
+        "max_distance_m": 40,
+        "conditions": null,
+        "article_ref": "чл. 44, ал. 2, т. 2"
+      },
+      {
+        "id": 3,
+        "context": "До стълбище/защитена зона",
+        "evacuation_type": "single_direction",
+        "max_distance_m": 20,
+        "conditions": null,
+        "article_ref": "чл. 44, ал. 3, т. 1"
+      },
+      {
+        "id": 4,
+        "context": "До стълбище/защитена зона",
+        "evacuation_type": "multiple_directions",
+        "max_distance_m": 40,
+        "conditions": null,
+        "article_ref": "чл. 44, ал. 3, т. 2"
+      },
+      {
+        "id": 5,
+        "context": "Помещения Ф5Г/Ф5Д, едноетажна сграда",
+        "evacuation_type": "single_direction",
+        "max_distance_m": 50,
+        "conditions": "Едноетажна сграда от I, II степен на огнеустойчивост или пожаронезащитена стоманена конструкция",
+        "article_ref": "чл. 44, ал. 6"
+      },
+      {
+        "id": 6,
+        "context": "Помещения Ф5Г/Ф5Д, едноетажна сграда",
+        "evacuation_type": "multiple_directions",
+        "max_distance_m": 100,
+        "conditions": "Едноетажна сграда от I, II степен на огнеустойчивост или пожаронезащитена стоманена конструкция",
+        "article_ref": "чл. 44, ал. 6"
+      },
+      {
+        "id": 7,
+        "context": "Помещения Ф5В с ПГИ и спринклери",
+        "evacuation_type": "single_direction",
+        "max_distance_m": 30,
+        "conditions": "Едноетажна сграда от I степен с автоматична ПИС и спринклерна инсталация",
+        "article_ref": "чл. 44, ал. 7"
+      },
+      {
+        "id": 8,
+        "context": "Помещения Ф5В с ПГИ и спринклери",
+        "evacuation_type": "multiple_directions",
+        "max_distance_m": 60,
+        "conditions": "Едноетажна сграда от I степен с автоматична ПИС и спринклерна инсталация",
+        "article_ref": "чл. 44, ал. 7"
+      },
+      {
+        "id": 9,
+        "context": "Бани, сауни, басейни, СПА Ф3.4",
+        "evacuation_type": "single_direction",
+        "max_distance_m": 50,
+        "conditions": null,
+        "article_ref": "чл. 44, ал. 8"
+      },
+      {
+        "id": 10,
+        "context": "Бани, сауни, басейни, СПА Ф3.4",
+        "evacuation_type": "multiple_directions",
+        "max_distance_m": 100,
+        "conditions": null,
+        "article_ref": "чл. 44, ал. 8"
+      }
+    ],
+    "dead_end_limits": [
+      {
+        "id": 1,
+        "context": "През съседни помещения Ф5В или Ф1-Ф4",
+        "max_distance_m": 40,
+        "requires_two_exits": true,
+        "article_ref": "чл. 40, ал. 2"
+      },
+      {
+        "id": 2,
+        "context": "Вътрешно помещение до 50 човека към едно съседно",
+        "max_distance_m": 20,
+        "requires_two_exits": false,
+        "additional_conditions": "Остъкление мин. 0.1m², ПИС или стена под тавана",
+        "article_ref": "чл. 40, ал. 3"
+      },
+      {
+        "id": 3,
+        "context": "През съседни помещения Ф5Г/Ф5Д",
+        "max_distance_m": 60,
+        "requires_two_exits": false,
+        "article_ref": "чл. 40, ал. 5"
+      },
+      {
+        "id": 4,
+        "context": "Склад или техническо помещение до 40m²",
+        "max_distance_m": 40,
+        "requires_two_exits": false,
+        "article_ref": "чл. 40, ал. 6"
+      }
+    ],
+    "min_widths": [
+      {
+        "element_type": "exit_door",
+        "context": "До 15 човека",
+        "min_width_m": null,
+        "max_width_m": null,
+        "notes": "Допуска се по-малка от 0.9m",
+        "article_ref": "чл. 41, ал. 3"
+      },
+      {
+        "element_type": "exit_door",
+        "context": "16-50 човека",
+        "min_width_m": 0.9,
+        "max_width_m": null,
+        "notes": null,
+        "article_ref": "чл. 41, ал. 2, т. 2"
+      },
+      {
+        "element_type": "exit_door",
+        "context": "51-200 човека",
+        "min_width_m": 0.9,
+        "max_width_m": 2.4,
+        "notes": null,
+        "article_ref": "чл. 41, ал. 2, т. 3-4"
+      },
+      {
+        "element_type": "exit_door",
+        "context": "Над 200 човека",
+        "min_width_m": 1.2,
+        "max_width_m": 2.4,
+        "notes": null,
+        "article_ref": "чл. 41, ал. 4-6"
+      },
+      {
+        "element_type": "corridor",
+        "context": "Надземни и полуподземни етажи",
+        "width_per_100_people_m": 0.8,
+        "notes": null,
+        "article_ref": "чл. 45, ал. 1, т. 1"
+      },
+      {
+        "element_type": "corridor",
+        "context": "Подземни етажи",
+        "width_per_100_people_m": 1.2,
+        "notes": null,
+        "article_ref": "чл. 45, ал. 1, т. 2"
+      },
+      {
+        "element_type": "stair",
+        "context": "Сумарна широчина над 200 човека, надземни",
+        "width_per_100_people_m": 0.8,
+        "notes": null,
+        "article_ref": "чл. 41, ал. 4, т. 2"
+      },
+      {
+        "element_type": "stair",
+        "context": "Сумарна широчина над 200 човека, подземни",
+        "width_per_100_people_m": 1.2,
+        "notes": null,
+        "article_ref": "чл. 41, ал. 4, т. 3"
+      },
+      {
+        "element_type": "stair_step",
+        "context": "Минимална широчина на стъпало",
+        "min_width_m": 0.25,
+        "notes": null,
+        "article_ref": "чл. 47, ал. 4"
+      },
+      {
+        "element_type": "stair_step",
+        "context": "Максимална височина на стъпало",
+        "max_height_m": 0.22,
+        "notes": null,
+        "article_ref": "чл. 47, ал. 4"
+      },
+      {
+        "element_type": "stair_ramp",
+        "context": "Стълбищно рамо максимална широчина",
+        "max_width_m": 2.4,
+        "notes": "При по-широки се разделят с парапети",
+        "article_ref": "чл. 45, ал. 7"
+      },
+      {
+        "element_type": "external_stair",
+        "context": "Максимална височина на стъпало",
+        "max_height_m": 0.25,
+        "notes": null,
+        "article_ref": "чл. 51, ал. 2"
+      },
+      {
+        "element_type": "spiral_stair",
+        "context": "16-50 човека",
+        "min_width_m": 1.2,
+        "min_step_width_m": 0.23,
+        "notes": "По вътрешна ходова линия на 0.30m от края",
+        "article_ref": "чл. 52, ал. 1"
+      },
+      {
+        "element_type": "spiral_stair",
+        "context": "Над 50 човека",
+        "min_width_m": 1.5,
+        "min_inner_diameter_m": 0.9,
+        "min_step_width_m": 0.23,
+        "notes": null,
+        "article_ref": "чл. 52, ал. 2"
+      }
+    ],
+    "functional_classes": [
+      {"code": "Ф1", "name": "Жилищни сгради", "name_en": "Residential buildings"},
+      {"code": "Ф1.1", "name": "Детски ясли и градини, болници, хосписи, домове за стари хора", "name_en": "Childcare, hospitals, hospices, nursing homes"},
+      {"code": "Ф1.2", "name": "Хотели, общежития, спални корпуси", "name_en": "Hotels, dormitories, sleeping quarters"},
+      {"code": "Ф1.3", "name": "Многофамилни жилищни сгради", "name_en": "Multi-family residential buildings"},
+      {"code": "Ф1.4", "name": "Еднофамилни жилищни сгради", "name_en": "Single-family residential buildings"},
+      {"code": "Ф2", "name": "Сгради за култура и спорт", "name_en": "Culture and sports buildings"},
+      {"code": "Ф2.1", "name": "Театри, кина, концертни зали, спортни съоръжения", "name_en": "Theaters, cinemas, concert halls, sports facilities"},
+      {"code": "Ф2.2", "name": "Музеи, галерии, дискотеки, казина", "name_en": "Museums, galleries, discos, casinos"},
+      {"code": "Ф2.3", "name": "Закрити спортни съоръжения без трибуни", "name_en": "Enclosed sports facilities without stands"},
+      {"code": "Ф2.4", "name": "Цирк, зоологически градини", "name_en": "Circus, zoos"},
+      {"code": "Ф3", "name": "Сгради за обществено обслужване", "name_en": "Public service buildings"},
+      {"code": "Ф3.1", "name": "Търговия", "name_en": "Trade"},
+      {"code": "Ф3.2", "name": "Обществено хранене", "name_en": "Catering"},
+      {"code": "Ф3.3", "name": "Гари, летища, пристанища", "name_en": "Stations, airports, ports"},
+      {"code": "Ф3.4", "name": "Поликлиники, религиозни обекти, бани, СПА", "name_en": "Clinics, religious buildings, baths, spas"},
+      {"code": "Ф3.5", "name": "Офиси, услуги, физкултурни комплекси", "name_en": "Offices, services, fitness centers"},
+      {"code": "Ф4", "name": "Учебни и научни сгради", "name_en": "Educational and scientific buildings"},
+      {"code": "Ф4.1", "name": "Училища, ЦПР", "name_en": "Schools, support centers"},
+      {"code": "Ф4.2", "name": "ВУЗ, научни институти", "name_en": "Universities, research institutes"},
+      {"code": "Ф4.3", "name": "Административни сгради, банки, застрахователни дружества", "name_en": "Administrative buildings, banks, insurance"},
+      {"code": "Ф4.4", "name": "Пожарни служби", "name_en": "Fire stations"},
+      {"code": "Ф5", "name": "Производствени и складови сгради", "name_en": "Industrial and warehouse buildings"},
+      {"code": "Ф5.1", "name": "Производствени сгради", "name_en": "Production buildings"},
+      {"code": "Ф5.2", "name": "Складове, паркинги, гаражи", "name_en": "Warehouses, parking, garages"},
+      {"code": "Ф5.3", "name": "Селскостопански сгради", "name_en": "Agricultural buildings"}
+    ],
+    "fire_hazard_categories": [
+      {"code": "Ф5А", "name": "Повишена взривопожарна опасност", "name_en": "High explosion-fire hazard"},
+      {"code": "Ф5Б", "name": "Взривопожарна опасност", "name_en": "Explosion-fire hazard"},
+      {"code": "Ф5В", "name": "Пожарна опасност", "name_en": "Fire hazard"},
+      {"code": "Ф5Г", "name": "Умерена пожарна опасност", "name_en": "Moderate fire hazard"},
+      {"code": "Ф5Д", "name": "Ниска пожарна опасност", "name_en": "Low fire hazard"}
+    ],
+    "height_categories": [
+      {"code": "Н", "name": "Ниско", "max_height_m": 15, "description": "До 15m височина"},
+      {"code": "НН", "name": "Повишено ниско", "min_height_m": 15, "max_height_m": 25, "description": "15-25m височина"},
+      {"code": "СВ", "name": "Средно-високо", "min_height_m": 25, "max_height_m": 50, "description": "25-50m височина"},
+      {"code": "В", "name": "Високо", "min_height_m": 50, "max_height_m": 75, "description": "50-75m височина"},
+      {"code": "МВ", "name": "Много високо", "min_height_m": 75, "description": "Над 75m височина"}
+    ]
+  },
+  "rules": {
+    "occupant_load": {
+      "id": "EGR-OCC-001",
+      "name_bg": "Изчисляване на брой хора",
+      "description_bg": "Броят на хората в помещенията се определя като отношение на площта и гъстотата на обитаване съгласно табл. 8",
+      "formula": "occupants = area_m2 / area_per_person_m2",
+      "article_ref": "чл. 36, ал. 1"
+    },
+    "min_exits": {
+      "id": "EGR-EXIT-001",
+      "name_bg": "Минимален брой евакуационни изходи",
+      "description_bg": "Броят на евакуационните изходи се определя в зависимост от броя на хората и площта на помещенията",
+      "article_ref": "чл. 41, чл. 42"
+    },
+    "exit_width": {
+      "id": "EGR-WIDTH-001",
+      "name_bg": "Минимална широчина на изходи",
+      "description_bg": "Широчината на евакуационните изходи се определя в зависимост от броя на евакуиращите се хора",
+      "article_ref": "чл. 41, чл. 45"
+    },
+    "travel_distance": {
+      "id": "EGR-TRAVEL-001",
+      "name_bg": "Максимална дължина на евакуационен път",
+      "description_bg": "Дължината на евакуационните пътища се определя в зависимост от броя на изходите и посоките на евакуация",
+      "article_ref": "чл. 44"
+    },
+    "exit_dispersal": {
+      "id": "EGR-EXIT-002",
+      "name_bg": "Разсредоточаване на изходите",
+      "description_bg": "Евакуационните изходи се проектират разсредоточени с ъгъл над 45° от най-отдалечената точка",
+      "min_angle_degrees": 45,
+      "article_ref": "чл. 37, ал. 4-5"
+    }
+  }
+}
