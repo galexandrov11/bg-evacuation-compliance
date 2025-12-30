@@ -207,6 +207,71 @@ describe('evaluateOccupantLoad', () => {
   });
 });
 
+describe('evaluateOccupantLoad - REVIEW warnings', () => {
+  it('should generate WARNING finding when no load factor found', () => {
+    // Use a dataset with empty occupant load table to trigger default factor and warning
+    const emptyLoadTableDataset = {
+      ...dataset,
+      tables: {
+        ...dataset.tables,
+        occupant_load_table_8: [], // Empty table will cause lookup to return null
+      },
+    };
+
+    const ctx: EvaluationContext = {
+      project: createProject({
+        building: officeBuilding,
+        spaces: [createSpace({ id: 's1', area_m2: 100, purpose: 'test-space' })],
+      }),
+      datasets: emptyLoadTableDataset,
+    };
+
+    const findings = evaluateOccupantLoad(ctx);
+
+    // Should have the INFO finding with default calculation
+    const infoFinding = findings.find(
+      f => f.rule_id === 'EGR-OCC-001' && f.subject_id === 's1'
+    );
+    expect(infoFinding).toBeDefined();
+    expect(infoFinding?.status).toBe('PASS');
+
+    // Should also have a WARNING finding about using default factor (EGR-OCC-002)
+    const warningFinding = findings.find(
+      f => f.rule_id === 'EGR-OCC-002' && f.subject_id === 's1'
+    );
+    expect(warningFinding).toBeDefined();
+    expect(warningFinding?.status).toBe('REVIEW');
+    expect(warningFinding?.severity).toBe('WARNING');
+    expect(warningFinding?.details?.default_used).toBe(5.0);
+  });
+
+  it('should use default 5.0 m2/person when no load entry found', () => {
+    // Use a dataset with empty occupant load table
+    const emptyLoadTableDataset = {
+      ...dataset,
+      tables: {
+        ...dataset.tables,
+        occupant_load_table_8: [],
+      },
+    };
+
+    const ctx: EvaluationContext = {
+      project: createProject({
+        building: createBuilding({ functional_class: 'Ф4.1' }),
+        spaces: [createSpace({ id: 's1', area_m2: 50, purpose: 'unknown-type' })],
+      }),
+      datasets: emptyLoadTableDataset,
+    };
+
+    const result = calculateOccupantLoad(ctx.project.spaces[0], ctx);
+
+    // 50m2 / 5.0 = 10 people
+    expect(result.computed_occupants).toBe(10);
+    expect(result.occupant_source).toBe('calculated');
+    expect(result.area_per_person_m2).toBe(5.0);
+  });
+});
+
 describe('determinism', () => {
   it('should produce identical results for identical input', () => {
     const ctx: EvaluationContext = {

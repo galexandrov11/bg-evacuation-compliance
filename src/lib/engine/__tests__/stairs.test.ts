@@ -207,6 +207,58 @@ describe('evaluateStairs - step dimensions', () => {
     expect(stepWidthFinding?.severity).toBe('BLOCKER');
   });
 
+  it('should use reduced minimum step width for spiral stairs', () => {
+    const ctx: EvaluationContext = {
+      project: createProject({
+        building: officeBuilding,
+        spaces: [createSpace({ id: 's1', floor: 1, area_m2: 100 })],
+        stairs: [
+          createStair({
+            id: 'st1',
+            type: 'spiral',
+            serves_floors: [0, 1],
+            width_m: 1.2,
+            step_width_m: 0.23, // Exactly at spiral minimum (0.23m vs 0.25m for regular)
+          }),
+        ],
+      }),
+      datasets: dataset,
+    };
+
+    const findings = evaluateStairs(ctx);
+    const stepWidthFinding = findings.find(f => f.rule_id === 'EGR-STAIR-003');
+
+    // Spiral stairs have reduced minimum step width of 0.23m
+    expect(stepWidthFinding?.status).toBe('PASS');
+    expect(stepWidthFinding?.required).toBe(0.23);
+    expect(stepWidthFinding?.legal_reference).toContain('чл. 52');
+  });
+
+  it('should FAIL spiral stair when step width is below 0.23m', () => {
+    const ctx: EvaluationContext = {
+      project: createProject({
+        building: officeBuilding,
+        spaces: [createSpace({ id: 's1', floor: 1, area_m2: 100 })],
+        stairs: [
+          createStair({
+            id: 'st1',
+            type: 'spiral',
+            serves_floors: [0, 1],
+            width_m: 1.2,
+            step_width_m: 0.20, // Below spiral minimum of 0.23m
+          }),
+        ],
+      }),
+      datasets: dataset,
+    };
+
+    const findings = evaluateStairs(ctx);
+    const stepWidthFinding = findings.find(f => f.rule_id === 'EGR-STAIR-003');
+
+    expect(stepWidthFinding?.status).toBe('FAIL');
+    expect(stepWidthFinding?.required).toBe(0.23);
+  });
+
   it('should PASS when step height is within limit', () => {
     const ctx: EvaluationContext = {
       project: createProject({

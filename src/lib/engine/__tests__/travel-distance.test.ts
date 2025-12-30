@@ -16,6 +16,113 @@ import {
 } from './fixtures';
 import type { EvaluationContext } from '../types';
 
+describe('evaluateTravelDistance - REVIEW cases', () => {
+  it('should return REVIEW when no distance requirement found in table', () => {
+    // Create a custom dataset with empty max_travel_distance table to trigger null lookup
+    const emptyDistanceDataset = {
+      ...dataset,
+      tables: {
+        ...dataset.tables,
+        max_travel_distance: [], // Empty table will cause lookupMaxTravelDistance to return null
+      },
+    };
+
+    const ctx: EvaluationContext = {
+      project: createProject({
+        building: officeBuilding,
+        spaces: [createSpace({ id: 's1' })],
+        routes: [
+          createRoute({
+            id: 'r1',
+            from_space_id: 's1',
+            length_m: 25,
+            evacuation_type: 'multiple_directions',
+          }),
+        ],
+      }),
+      datasets: emptyDistanceDataset,
+    };
+
+    const findings = evaluateTravelDistance(ctx);
+    const routeFinding = findings.find(
+      f => f.rule_id === 'EGR-TRAVEL-001' && f.subject_id === 'r1'
+    );
+
+    expect(routeFinding).toBeDefined();
+    expect(routeFinding?.status).toBe('REVIEW');
+    expect(routeFinding?.severity).toBe('WARNING');
+    expect(routeFinding?.required).toBeNull();
+    expect(routeFinding?.measured).toBe(25);
+    expect(routeFinding?.details?.evacuation_type).toBe('multiple_directions');
+  });
+
+  it('should include route name in REVIEW finding when provided', () => {
+    const emptyDistanceDataset = {
+      ...dataset,
+      tables: {
+        ...dataset.tables,
+        max_travel_distance: [],
+      },
+    };
+
+    const ctx: EvaluationContext = {
+      project: createProject({
+        building: officeBuilding,
+        spaces: [createSpace({ id: 's1', name: 'Test Space' })],
+        routes: [
+          createRoute({
+            id: 'r1',
+            name: 'Main Corridor Route',
+            from_space_id: 's1',
+            length_m: 30,
+            evacuation_type: 'single_direction',
+          }),
+        ],
+      }),
+      datasets: emptyDistanceDataset,
+    };
+
+    const findings = evaluateTravelDistance(ctx);
+    const routeFinding = findings.find(f => f.rule_id === 'EGR-TRAVEL-001');
+
+    expect(routeFinding?.subject_name).toBe('Main Corridor Route');
+    expect(routeFinding?.details?.from_space_id).toBe('s1');
+  });
+
+  it('should use fallback name when route name not provided', () => {
+    const emptyDistanceDataset = {
+      ...dataset,
+      tables: {
+        ...dataset.tables,
+        max_travel_distance: [],
+      },
+    };
+
+    const ctx: EvaluationContext = {
+      project: createProject({
+        building: officeBuilding,
+        spaces: [createSpace({ id: 's1' })],
+        routes: [
+          createRoute({
+            id: 'r1',
+            name: undefined,
+            from_space_id: 's1',
+            length_m: 30,
+            evacuation_type: 'single_direction',
+          }),
+        ],
+      }),
+      datasets: emptyDistanceDataset,
+    };
+
+    const findings = evaluateTravelDistance(ctx);
+    const routeFinding = findings.find(f => f.rule_id === 'EGR-TRAVEL-001');
+
+    // Should use fallback name format
+    expect(routeFinding?.subject_name).toContain('r1');
+  });
+});
+
 describe('evaluateTravelDistance - route length', () => {
   it('should PASS when route length is within limit', () => {
     const ctx: EvaluationContext = {
