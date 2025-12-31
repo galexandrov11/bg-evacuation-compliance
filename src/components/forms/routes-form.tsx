@@ -5,7 +5,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -88,6 +88,32 @@ function RouteDialog({ open, onOpenChange, editingRoute, onSave }: RouteDialogPr
   });
 
   const hasDeadEnd = form.watch('has_dead_end');
+
+  // Reset form when dialog opens or editingRoute changes
+  useEffect(() => {
+    if (open) {
+      form.reset(
+        editingRoute
+          ? {
+              name: editingRoute.name,
+              from_space_id: editingRoute.from_space_id,
+              to_exit_id: editingRoute.to_exit_id,
+              length_m: editingRoute.length_m,
+              has_dead_end: editingRoute.has_dead_end,
+              dead_end_length_m: editingRoute.dead_end_length_m,
+              evacuation_type: editingRoute.evacuation_type,
+            }
+          : {
+              name: '',
+              from_space_id: '',
+              to_exit_id: '',
+              length_m: 0,
+              has_dead_end: false,
+              evacuation_type: 'multiple_directions',
+            }
+      );
+    }
+  }, [open, editingRoute, form]);
 
   const onSubmit = (data: RouteFormInput) => {
     // Clear dead_end_length if no dead end
@@ -364,7 +390,10 @@ export function RoutesForm() {
             Добавете евакуационни маршрути (незадължително)
           </p>
           <Button
-            onClick={() => setDialogOpen(true)}
+            onClick={() => {
+              setEditingRoute(undefined);
+              setDialogOpen(true);
+            }}
             className="mt-4 gap-2"
             variant="outline"
           >

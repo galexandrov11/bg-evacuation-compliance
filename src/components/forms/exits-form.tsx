@@ -55,6 +55,8 @@ const EXIT_TYPES = [
   { value: 'door', label: 'Врата (директен изход)' },
   { value: 'stair', label: 'Стълбищна клетка' },
   { value: 'external', label: 'Външна евакуация' },
+  { value: 'corridor', label: 'Коридор' },
+  { value: 'internal', label: 'Вътрешна' },
 ];
 
 interface ExitDialogProps {

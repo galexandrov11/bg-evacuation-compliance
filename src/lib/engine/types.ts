@@ -59,7 +59,7 @@ export type FireResistanceRating = 'I' | 'II' | 'III' | 'IV' | 'V';
 
 export type StairType = 'enclosed' | 'open' | 'external' | 'smoke_protected' | 'spiral';
 
-export type ExitType = 'door' | 'stair' | 'external';
+export type ExitType = 'door' | 'stair' | 'external' | 'corridor' | 'internal';
 
 export interface BuildingInput {
   name: string;

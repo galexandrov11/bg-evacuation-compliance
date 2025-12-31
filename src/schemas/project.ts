@@ -29,7 +29,7 @@ export const stairTypeSchema = z.enum([
   'enclosed', 'open', 'external', 'smoke_protected', 'spiral',
 ]);
 
-export const exitTypeSchema = z.enum(['door', 'stair', 'external']);
+export const exitTypeSchema = z.enum(['door', 'stair', 'external', 'corridor', 'internal']);
 
 export const evacuationTypeSchema = z.enum(['single_direction', 'multiple_directions']);
 
