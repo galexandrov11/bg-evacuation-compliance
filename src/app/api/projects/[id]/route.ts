@@ -26,9 +26,8 @@ function checkDbConfig() {
 // GET /api/projects/[id] - Get single project
 export async function GET(request: NextRequest, { params }: RouteParams) {
   const session = await auth();
-  if (!session?.user?.id) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  // Auth temporarily disabled - use default user
+  const userId = session?.user?.id || 'default-user';
 
   const dbError = checkDbConfig();
   if (dbError) return dbError;
@@ -40,7 +39,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     const project = await db
       .select()
       .from(projects)
-      .where(and(eq(projects.id, id), eq(projects.user_id, session.user.id)))
+      .where(and(eq(projects.id, id), eq(projects.user_id, userId)))
       .get();
 
     if (!project) {
@@ -82,9 +81,8 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
 // PUT /api/projects/[id] - Update project
 export async function PUT(request: NextRequest, { params }: RouteParams) {
   const session = await auth();
-  if (!session?.user?.id) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  // Auth temporarily disabled - use default user
+  const userId = session?.user?.id || 'default-user';
 
   const dbError = checkDbConfig();
   if (dbError) return dbError;
@@ -98,7 +96,7 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
     const existing = await db
       .select()
       .from(projects)
-      .where(and(eq(projects.id, id), eq(projects.user_id, session.user.id)))
+      .where(and(eq(projects.id, id), eq(projects.user_id, userId)))
       .get();
 
     if (!existing) {
@@ -120,7 +118,7 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
           ? JSON.stringify(last_evaluation)
           : existing.last_evaluation,
       })
-      .where(and(eq(projects.id, id), eq(projects.user_id, session.user.id)));
+      .where(and(eq(projects.id, id), eq(projects.user_id, userId)));
 
     return NextResponse.json({
       id,
@@ -139,9 +137,8 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
 // DELETE /api/projects/[id] - Delete project
 export async function DELETE(request: NextRequest, { params }: RouteParams) {
   const session = await auth();
-  if (!session?.user?.id) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  // Auth temporarily disabled - use default user
+  const userId = session?.user?.id || 'default-user';
 
   const dbError = checkDbConfig();
   if (dbError) return dbError;
@@ -153,7 +150,7 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
     const existing = await db
       .select()
       .from(projects)
-      .where(and(eq(projects.id, id), eq(projects.user_id, session.user.id)))
+      .where(and(eq(projects.id, id), eq(projects.user_id, userId)))
       .get();
 
     if (!existing) {
@@ -163,7 +160,7 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
       );
     }
 
-    await db.delete(projects).where(and(eq(projects.id, id), eq(projects.user_id, session.user.id)));
+    await db.delete(projects).where(and(eq(projects.id, id), eq(projects.user_id, userId)));
 
     return NextResponse.json({ success: true });
   } catch (error) {

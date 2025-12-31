@@ -14,9 +14,8 @@ import { auth } from '@/lib/auth';
 export async function GET() {
   try {
     const session = await auth();
-    if (!session?.user?.id) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+    // Auth temporarily disabled - use default user
+    const userId = session?.user?.id || 'default-user';
 
     if (!process.env.TURSO_DATABASE_URL) {
       return NextResponse.json(
@@ -34,7 +33,7 @@ export async function GET() {
         updated_at: projects.updated_at,
       })
       .from(projects)
-      .where(eq(projects.user_id, session.user.id))
+      .where(eq(projects.user_id, userId))
       .orderBy(desc(projects.updated_at));
 
     return NextResponse.json(userProjects);
@@ -51,9 +50,8 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   try {
     const session = await auth();
-    if (!session?.user?.id) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+    // Auth temporarily disabled - use default user
+    const userId = session?.user?.id || 'default-user';
 
     if (!process.env.TURSO_DATABASE_URL) {
       return NextResponse.json(
@@ -78,7 +76,7 @@ export async function POST(request: NextRequest) {
 
     await db.insert(projects).values({
       id,
-      user_id: session.user.id,
+      user_id: userId,
       name,
       data: JSON.stringify(data),
       created_at: now,

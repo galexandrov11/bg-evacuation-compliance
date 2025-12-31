@@ -1,28 +1,10 @@
-import { auth } from '@/lib/auth';
 import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-export default auth((req) => {
-  const isLoggedIn = !!req.auth;
-  const isLoginPage = req.nextUrl.pathname === '/login';
-  const isApiAuth = req.nextUrl.pathname.startsWith('/api/auth');
-
-  // Allow auth API routes
-  if (isApiAuth) {
-    return NextResponse.next();
-  }
-
-  // Redirect logged-in users away from login page
-  if (isLoggedIn && isLoginPage) {
-    return NextResponse.redirect(new URL('/', req.url));
-  }
-
-  // Redirect non-logged-in users to login page
-  if (!isLoggedIn && !isLoginPage) {
-    return NextResponse.redirect(new URL('/login', req.url));
-  }
-
+// Auth temporarily disabled
+export function middleware(_req: NextRequest) {
   return NextResponse.next();
-});
+}
 
 export const config = {
   matcher: ['/((?!_next/static|_next/image|favicon.ico|icon.svg).*)'],
