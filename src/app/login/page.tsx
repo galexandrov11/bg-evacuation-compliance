@@ -131,8 +131,13 @@ export default function LoginPage() {
                 type="password"
                 placeholder="••••••••"
                 required
-                minLength={6}
+                minLength={8}
               />
+              {isRegister && (
+                <p className="text-xs text-gray-500">
+                  Минимум 8 символа, главна буква, малка буква и цифра
+                </p>
+              )}
             </div>
 
             <Button type="submit" className="w-full" disabled={isLoading}>

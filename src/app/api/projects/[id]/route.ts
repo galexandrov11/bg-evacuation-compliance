@@ -50,12 +50,25 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       );
     }
 
+    // Safely parse JSON data
+    let parsedData;
+    let parsedEvaluation = null;
+    try {
+      parsedData = JSON.parse(project.data);
+      if (project.last_evaluation) {
+        parsedEvaluation = JSON.parse(project.last_evaluation);
+      }
+    } catch {
+      return NextResponse.json(
+        { error: 'Corrupted project data' },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json({
       ...project,
-      data: JSON.parse(project.data),
-      last_evaluation: project.last_evaluation
-        ? JSON.parse(project.last_evaluation)
-        : null,
+      data: parsedData,
+      last_evaluation: parsedEvaluation,
     });
   } catch (error) {
     console.error('Failed to fetch project:', error);

@@ -3,7 +3,7 @@
  * Users and Projects tables
  */
 
-import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text, integer, index } from 'drizzle-orm/sqlite-core';
 
 export const users = sqliteTable('users', {
   id: text('id').primaryKey(),
@@ -21,7 +21,9 @@ export const projects = sqliteTable('projects', {
   created_at: integer('created_at', { mode: 'timestamp' }).notNull(),
   updated_at: integer('updated_at', { mode: 'timestamp' }).notNull(),
   last_evaluation: text('last_evaluation'), // JSON stringified result (optional)
-});
+}, (table) => [
+  index('projects_user_id_idx').on(table.user_id),
+]);
 
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
